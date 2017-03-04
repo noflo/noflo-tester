@@ -16,6 +16,8 @@ class Tester
   #   - `ready`: a callback `function(err, instance)` called when instance
   #     is ready.
   constructor: (@component, @options = {}) ->
+    @options.cache = true if not @options.cache?
+
     if typeof(@component) is 'object'
       @c = @component
     else if typeof(@component) is 'function'
@@ -30,7 +32,7 @@ class Tester
           @baseDir = process.env.NOFLO_TEST_BASEDIR
         else
           @baseDir = process.cwd()
-        @loader = new noflo.ComponentLoader @baseDir, cache: true
+        @loader = new noflo.ComponentLoader @baseDir, cache: @options.cache
     if @options?.debug
       # instantiate our Tracer
       @tracer = new trace.Tracer()
