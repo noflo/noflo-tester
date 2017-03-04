@@ -1,9 +1,9 @@
-NoFlo component/graph testing wrapper
+NoFlo component/graph testing and embedding wrapper
 ============
 
-[![Build Status](https://travis-ci.org/trustmaster/noflo-tester.svg?branch=master)](https://travis-ci.org/trustmaster/noflo-tester)
+[![Build Status](https://travis-ci.org/noflo/noflo-wrapper.svg?branch=master)](https://travis-ci.org/noflo/noflo-wrapper)
 
-Tester wraps a component to provide a convenient interface compatible with any testing paradigm: TDD/BDD/whatever.
+Wraps a component to provide a convenient interface compatible with any testing paradigm: TDD/BDD/whatever. Also useful to embed NoFlo graphs into existing applications.
 
 ## Benefits
 
@@ -14,16 +14,16 @@ Tester wraps a component to provide a convenient interface compatible with any t
 
 ## Getting started
 
-Install `noflo-tester` and add it to your project's dev dependecies:
+Install `noflo-wrapper` and add it to your project's dev dependecies:
 
 ```
-npm install --save-dev noflo-tester
+npm install --save-dev noflo-wrapper
 ```
 
 Require it in your specs/tests:
 
 ```coffeescript
-Tester = require 'noflo-tester'
+Wrapper = require 'noflo-wrapper'
 ```
 
 Use methods described below and run the tests just as you do it normally with your favorite testing framework.
@@ -34,15 +34,15 @@ Explanations below contain examples in CoffeeScript using Mocha and Chai in BDD 
 
 ### Loading a component
 
-First you need to create a new Tester object to wrap your component or graph:
+First you need to create a new Wrapper object to wrap your component or graph:
 
 ```coffeescript
-t = new Tester 'my-noflo-app/Multiplier'
+t = new Wrapper 'my-noflo-app/Multiplier'
 ```
 
 The constructor accepts either a full component name (including namespace prefix), or an already instantiated component object, or a function returning such an object.
 
-In general, components are loaded and wired up asynchronously, so you need to start the tester like this before running any tests:
+In general, components are loaded and wired up asynchronously, so you need to start the wrapper like this before running any tests:
 
 ```coffeescript
 before (done) ->
@@ -54,10 +54,10 @@ before (done) ->
 
 **Advanced options**
 
-If the component to be tested is a NoFlo graph, you can pass custom event handlers to the Tester constructor:
+If the component to be tested is a NoFlo graph, you can pass custom event handlers to the Wrapper constructor:
 
 ```coffeescript
-t = new Tester 'my-noflo-app/Multiplier',
+t = new Wrapper 'my-noflo-app/Multiplier',
   load: (err, instance) ->
     # This is call after loading the graph
   ready: (err, instance) ->
@@ -105,7 +105,7 @@ t.ins.y.send 3
 t.ins.y.disconnect()
 ```
 
-Tester object provides `ins` and `outs` hashmaps of sockets attached to the component.
+Wrapper object provides `ins` and `outs` hashmaps of sockets attached to the component.
 
 You can also access the component directly via `c` property:
 
