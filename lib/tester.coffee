@@ -48,12 +48,12 @@ class Tester
       @options.ready null, @c if typeof(@options.ready) is 'function'
       @ins = {}
       @outs = {}
-      Object.keys(@c.inPorts).forEach (name) =>
+      Object.keys(@c.inPorts.ports).forEach (name) =>
         return if typeof(@c.inPorts[name].attach) isnt 'function'
         socket = noflo.internalSocket.createSocket()
         @c.inPorts[name].attach socket
         @ins[name] = socket
-      Object.keys(@c.outPorts).forEach (name) =>
+      Object.keys(@c.outPorts.ports).forEach (name) =>
         return if typeof(@c.outPorts[name].attach) isnt 'function'
         socket = noflo.internalSocket.createSocket()
         @c.outPorts[name].attach socket
