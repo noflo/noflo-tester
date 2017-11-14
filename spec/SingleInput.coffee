@@ -9,8 +9,10 @@ c.inPorts.add 'in',
 c.outPorts.add 'out'
 noflo.helpers.WirePattern c,
   forwardGroups: true
-, (input, groups, out) ->
+  async: true
+, (input, groups, out, callback) ->
   out.send input
+  do callback
 
 
 describe 'Single input tester', ->
