@@ -1,6 +1,8 @@
 NoFlo component/graph testing and embedding wrapper
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/noflo/noflo-wrapper.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/noflo/noflo-wrapper.svg?branch=master)](https://travis-ci.org/noflo/noflo-wrapper)
 
 Wraps a component to provide a convenient interface compatible with any testing paradigm: TDD/BDD/whatever. Also useful to embed NoFlo graphs into existing applications.
