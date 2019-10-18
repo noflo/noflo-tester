@@ -32,6 +32,6 @@
   "devDependencies": {
     "chai": "^4.0.0",
     "coffeelint": "^2.0.7",
-    "mocha": "^6.0.0"
+    "mocha": "^6.2.2"
   }
 }
