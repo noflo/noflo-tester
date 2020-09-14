@@ -7,13 +7,10 @@ c = new noflo.Component
 c.description = 'Echoes its input to the output'
 c.inPorts.add 'in',
 c.outPorts.add 'out'
-noflo.helpers.WirePattern c,
-  forwardGroups: true
-  async: true
-, (input, groups, out, callback) ->
-  out.send input
-  do callback
-
+c.process (input, output) ->
+  data = input.getData 'in'
+  output.sendDone
+    out: data
 
 describe 'Single input tester', ->
   t = new Tester c
