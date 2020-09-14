@@ -1,6 +1,6 @@
 {
   "name": "noflo-wrapper",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "NoFlo component/graph testing and embedding wrapper compatible with BDD/TDD/whatever",
   "main": "lib/tester.js",
   "scripts": {

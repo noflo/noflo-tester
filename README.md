@@ -213,6 +213,6 @@ Then feel free to hack on the `lib` and `specs`.
 
 ## Changes
 
-* 0.3.0 (git master)
+* 0.3.0 (2020-09-14)
   - Ported from CoffeeScript to ES6
   - Now using native Promises instead of Bluebird
