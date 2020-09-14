@@ -25,13 +25,13 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "coffeescript": "^2.0.2",
-    "noflo": "^1.0.0",
-    "noflo-nodejs": "^0.11.0",
-    "noflo-runtime-base": "^0.10.0"
+    "noflo": "^1.2.0",
+    "noflo-nodejs": "^0.12.1",
+    "noflo-runtime-base": "^0.11.0"
   },
   "devDependencies": {
     "chai": "^4.0.0",
     "coffeelint": "^2.0.7",
-    "mocha": "^6.0.0"
+    "mocha": "^7.0.1"
   }
 }
