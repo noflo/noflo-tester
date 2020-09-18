@@ -1,8 +1,6 @@
 NoFlo component/graph testing and embedding wrapper
 ============
 
-[![Build Status](https://travis-ci.org/noflo/noflo-wrapper.svg?branch=master)](https://travis-ci.org/noflo/noflo-wrapper)
-
 Wraps a component to provide a convenient interface compatible with any testing paradigm: TDD/BDD/whatever. Also useful to embed NoFlo graphs into existing applications. Read also [Embedding NoFlo](https://noflojs.org/documentation/embedding/).
 
 ## Benefits
