@@ -242,6 +242,9 @@ Then feel free to hack on the `lib` and `specs`.
 
 ## Changes
 
+* 0.4.0 (2020-11-26)
+  - Now using the new Flowtrace functionality in NoFlo 1.3
+  - Wrapper can now also wrap `noflo.Graph` objects
 * 0.3.0 (2020-09-14)
   - Ported from CoffeeScript to ES6
   - Now using native Promises instead of Bluebird
