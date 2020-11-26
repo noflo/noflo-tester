@@ -5,7 +5,7 @@ Wraps a component to provide a convenient interface for use in normal JavaScript
 
 ## Benefits
 
-* Provider easy JavaScript access to long-running NoFlo graphs
+* Provides easy JavaScript access to long-running NoFlo graphs
 * Reduces boilerplate to set up a component testbed.
 * Provides common high-level methods.
 * Provides low-level access to the component, ports and events.
