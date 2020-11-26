@@ -114,10 +114,10 @@ t.ins.y.disconnect()
 
 Wrapper object provides `ins` and `outs` hashmaps of sockets attached to the component.
 
-You can also access the component directly via `c` property:
+You can also access the NoFlo network directly via `network` property:
 
 ```javascript
-if (t.c.outPorts.error.isAttached()) {
+if (t.network.getActiveProcesses().length) {
   // Do something
 });
 ```
