@@ -1,6 +1,6 @@
 const chai = require('chai');
 const noflo = require('noflo');
-const Tester = require('../lib/tester');
+const Tester = require('../lib/wrapper');
 
 // Async divider
 const c = new noflo.Component();
@@ -45,9 +45,9 @@ c.process((input, output) => {
 });
 
 describe('Synchronization of received packets', () => {
-  const t = new Tester(c);
+  const t = new Tester(() => c);
 
-  before((done) => t.start(() => done()));
+  before((done) => t.start(done));
 
   it('should wait for result from multiple outputs', (done) => {
     let div = null;

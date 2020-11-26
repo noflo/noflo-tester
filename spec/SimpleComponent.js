@@ -1,6 +1,6 @@
 const chai = require('chai');
 const noflo = require('noflo');
-const Tester = require('../lib/tester');
+const Tester = require('../lib/wrapper');
 
 // A simple component
 const c = new noflo.Component();
@@ -26,9 +26,10 @@ c.process((input, output) => {
 });
 
 describe('Simple component tester', () => {
-  const t = new Tester(c);
-
-  before((done) => t.start(() => done()));
+  const t = new Tester(() => c, {
+    debug: true,
+  });
+  before((done) => t.start(done));
 
   it('should send data to multiple ins and expect a result', (done) => {
     t.receive('xy', (data) => {
@@ -50,12 +51,6 @@ describe('Simple component tester', () => {
 
     t.ins.x.post(new noflo.IP('data', 8));
     t.ins.y.post(new noflo.IP('data', 3));
-  });
-
-  it('should provide direct access to a wrapped component', () => {
-    chai.expect(t.c.inPorts).to.include.keys(['x', 'y']);
-    chai.expect(t.c.outPorts).to.include.keys('xy');
-    chai.expect(t.c.description).to.equal(c.description);
   });
 
   it('should pass all data chunks, brackets and counts on receive', (done) => {
@@ -88,5 +83,16 @@ describe('Simple component tester', () => {
     t.ins.x.post(new noflo.IP('closeBracket'));
     t.ins.y.post(new noflo.IP('closeBracket'));
     t.ins.y.post(new noflo.IP('closeBracket'));
+  });
+
+  describe('with Flowtraces', () => {
+    let traceJson;
+    it('should have captured a trace', () => {
+      chai.expect(t.tracer).to.be.an('object');
+      traceJson = t.tracer.toJSON();
+    });
+    it('should include a graph in the trace', () => {
+      chai.expect(traceJson.header.main).to.be.a('string');
+    });
   });
 });
