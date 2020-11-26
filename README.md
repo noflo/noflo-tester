@@ -1,10 +1,11 @@
 NoFlo component/graph testing and embedding wrapper
 ============
 
-Wraps a component to provide a convenient interface compatible with any testing paradigm: TDD/BDD/whatever. Also useful to embed NoFlo graphs into existing applications. Read also [Embedding NoFlo](https://noflojs.org/documentation/embedding/).
+Wraps a component to provide a convenient interface for use in normal JavaScript code. It is compatible with any testing paradigm: TDD/BDD/whatever. Read also [Embedding NoFlo](https://noflojs.org/documentation/embedding/).
 
 ## Benefits
 
+* Provider easy JavaScript access to long-running NoFlo graphs
 * Reduces boilerplate to set up a component testbed.
 * Provides common high-level methods.
 * Provides low-level access to the component, ports and events.
@@ -12,13 +13,13 @@ Wraps a component to provide a convenient interface compatible with any testing 
 
 ## Getting started
 
-Install `noflo-wrapper` and add it to your project's dev dependecies:
+Install `noflo-wrapper` and add it to your project's dependecies:
 
 ```
-npm install --save-dev noflo-wrapper
+npm install noflo-wrapper --save
 ```
 
-Require it in your specs/tests:
+Require it:
 
 ```javascript
 const Wrapper = require('noflo-wrapper');
@@ -189,7 +190,37 @@ t.send({
 });
 ```
 
-### Examples
+### Capturing Flowtraces
+
+noflo-wrapper supports capturing [Flowtraces](https://github.com/flowbased/flowtrace) for your runs. This enables retroactive debugging of the data flow in tools like Flowhub.
+
+You can enable this with:
+
+```javascript
+const t = new Wrapper('my-noflo-app/Multiplier', {
+  debug: true,
+});
+```
+
+If you want to manage your own Flowtraces, you can also pass in an instance instead:
+
+```javascript
+const { Flowtrace } = new Flowtrace();
+const myTrace = new Flowtrace();
+const t = new Wrapper('my-noflo-app/Multiplier', {
+  flowtrace: myTrace,
+});
+```
+
+Under Node.js you can save the captured Flowtrace into a file with:
+
+```javascript
+const tracefile = await t.dumpTrace();
+```
+
+If you want to store it some other way, it can be accessed via `t.tracer`.
+
+## Examples
 
 See complete BDD-style examples in `spec` folder.
 
