@@ -39,7 +39,7 @@ First you need to create a new Wrapper object to wrap your component or graph:
 const t = new Wrapper('my-noflo-app/Multiplier');
 ```
 
-The constructor accepts either a full component name (including namespace prefix), or an already instantiated component object, or a function returning such an object.
+The constructor accepts either a full component name (including namespace prefix), or a function returning an instantiated component object, or a NoFlo Graph instance.
 
 In general, components are loaded and wired up asynchronously, so you need to start the wrapper like this before running any tests:
 
