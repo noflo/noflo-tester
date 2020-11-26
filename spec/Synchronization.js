@@ -1,6 +1,6 @@
 const chai = require('chai');
 const noflo = require('noflo');
-const Tester = require('../lib/tester');
+const Tester = require('../lib/wrapper');
 
 // Async divider
 const c = new noflo.Component();
