@@ -13,9 +13,9 @@ c.process((input, output) => {
 });
 
 describe('Single input tester', () => {
-  const t = new Tester(c);
+  const t = new Tester(() => c);
 
-  before((done) => t.start(() => done()));
+  before((done) => t.start(done));
 
   it('should send data to a single input and expect the result', (done) => {
     t.receive('out', (data) => {

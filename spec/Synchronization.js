@@ -45,9 +45,9 @@ c.process((input, output) => {
 });
 
 describe('Synchronization of received packets', () => {
-  const t = new Tester(c);
+  const t = new Tester(() => c);
 
-  before((done) => t.start(() => done()));
+  before((done) => t.start(done));
 
   it('should wait for result from multiple outputs', (done) => {
     let div = null;
