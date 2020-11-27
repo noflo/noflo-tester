@@ -242,6 +242,8 @@ Then feel free to hack on the `lib` and `specs`.
 
 ## Changes
 
+* 0.4.1 (2020-11-27)
+  - Fixed an issue with subgraph networks transmitting IIPs twice
 * 0.4.0 (2020-11-26)
   - Now using the new Flowtrace functionality in NoFlo 1.3
   - Wrapper can now also wrap `noflo.Graph` objects
