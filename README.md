@@ -41,16 +41,10 @@ const t = new Wrapper('my-noflo-app/Multiplier');
 
 The constructor accepts either a full component name (including namespace prefix), or a function returning an instantiated component object, or a NoFlo Graph instance.
 
-In general, components are loaded and wired up asynchronously, so you need to start the wrapper like this before running any tests:
+In general, components are loaded and wired up asynchronously, so you need to start the wrapper like this (and resolve the Promise) before running any tests:
 
 ```javascript
-before((done) => {
-  t.start((err, instance) => {
-    if (err) { return done(err); } // Error handling, optional
-    // instance contains a ready to use component
-    done();
-  });
-});
+before(() => t.start());
 ```
 
 **Advanced options**
@@ -242,6 +236,9 @@ Then feel free to hack on the `lib` and `specs`.
 
 ## Changes
 
+* 0.5.0 (git master)
+  - Wrapper `start` method now returns a Promise when no callback is provided
+  - Added compatibility with NoFlo 1.4 Promises API
 * 0.4.1 (2020-11-27)
   - Fixed an issue with subgraph networks transmitting IIPs twice
 * 0.4.0 (2020-11-26)
