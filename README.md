@@ -236,7 +236,7 @@ Then feel free to hack on the `lib` and `specs`.
 
 ## Changes
 
-* 0.5.0 (git master)
+* 0.5.0 (2020-12-10)
   - Wrapper `start` method now returns a Promise when no callback is provided
   - Added compatibility with NoFlo 1.4 Promises API
 * 0.4.1 (2020-11-27)
